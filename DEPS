@@ -24,9 +24,11 @@ vars = {
   'fuchsia_git': 'https://fuchsia.googlesource.com',
   'github_git': 'https://github.com',
   'skia_git': 'https://skia.googlesource.com',
+  'v8_git': 'file:///home/lijinpei/v8/v8.git',
   # OCMock is for testing only so there is no google clone
   'ocmock_git': 'https://github.com/erikdoe/ocmock.git',
   'skia_revision': '1cf2c8d6ec215984f68a5843f2a483e00d35e849',
+  'v8_tag': '8.6.361',
 
   # When updating the Dart revision, ensure that all entries that are
   # dependencies of Dart are also updated to match the entries in the
@@ -352,6 +354,9 @@ deps = {
    {'packages': [{'version': 'version:2.10.0-3.0.dev', 'package': 'dart/dart-sdk/${{platform}}'}], 'dep_type': 'cipd'},
 
   # WARNING: end of dart dependencies list that is cleaned up automatically - see create_updated_flutter_deps.py.
+  #
+  'src/v8':
+   Var('v8_git') + '@' + Var('v8_tag'),
 
   'src/third_party/colorama/src':
    Var('chromium_git') + '/external/colorama.git' + '@' + '799604a1041e9b3bc5d2789ecbd7e8db2e18e6b8',
